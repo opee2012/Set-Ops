@@ -1,4 +1,4 @@
-Start program by using `js sets.js [OPTIONS]` in terminal within set-ops-opee2012 repo.
+Start program by using `node sets.js [OPTIONS]` in terminal within set-ops-opee2012 repo.
 
 # OPTIONS
 
