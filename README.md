@@ -1,4 +1,4 @@
-Start program by using `js sets.js` in terminal within hello-world-opee2012-1 repo.
+Start program by using `js sets.js [OPTIONS]` in terminal within hello-world-opee2012-1 repo.
 
 # OPTIONS
 
