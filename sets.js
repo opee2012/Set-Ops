@@ -16,7 +16,8 @@ function setUnion() {
         }
     }
     unionSet.sort();
-    console.log(...unionSet);
+    console.log(unionSet);
+    process.exit();
 }
 
 // Intersection - Compare elements in sets and if true, add to array.
@@ -31,7 +32,8 @@ function setIntersection() {
         }
     }
     interSet.sort();
-    console.log(...interSet);
+    console.log(interSet);
+    process.exit();
 }
 
 // Difference - Compare both and find what is not in the second set and add to array.
@@ -47,12 +49,42 @@ function setDifference() {
         }
     }
     diffSet.sort();
-    console.log(...diffSet);
+    console.log(diffSet);
+    process.exit();
 }
 
-var setOne = new Array(1,2,3,5);
-var setTwo = new Array(3,4,5,6,7);
+function setHelp() {
+    console.log(" ");
+    process.exit();
+}
 
-setUnion();
-setIntersection();
-setDifference();
+var myArgs = process.argv.slice(2);
+
+if (myArgs.length == 0) {
+    console.error("Error, no arguments specified please use -h or --help for usage information.");
+    process.exit();
+}
+if (myArgs.length == 1 || myArgs.length == 2) {
+    console.error("Error, incorrect arguments specified please use -h or --help for usage information.");
+    process.exit();
+}
+
+var A = myArgs[1];
+var B = myArgs[2];
+var setOne = A.split(",");
+var setTwo = B.split(",");
+
+//console.log(setTwo[0]);
+
+if (myArgs[0] == '-u' || myArgs[0] == '--union') {
+    setUnion();
+}
+if (myArgs[0] == '-i' || myArgs[0] == '--intersection') {
+    setIntersection();
+}
+if (myArgs[0] == '-d' || myArgs[0] == '--difference') {
+    setDifference();
+}
+if (myArgs[0] == '-h' || myArgs[0] == '--help') {
+    setHelp();
+}
