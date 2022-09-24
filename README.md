@@ -1,6 +1,8 @@
+#  set-ops-opee2012
+
 Start program by using `node sets.js [OPTIONS]` in terminal within set-ops-opee2012 repo.
 
-# OPTIONS
+## OPTIONS
 
 * -u SET1 SET2, --union SET1 SET2
 
