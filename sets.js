@@ -1,8 +1,3 @@
-// -u SET1 SET2 or --union SET1 SET2
-// -i SET1 SET2 or --intersection SET1 SET2
-// -d SET1 SET2 or --difference SET1 SET2
-// -h or --help
-
 // Union - Duplicate first set then compare that with second set. If there are duplicates, don't add to array.
 function setUnion() {
     var unionSet = new Array();
@@ -16,8 +11,6 @@ function setUnion() {
         }
     }
     unionSet.sort();
-    console.log(unionSet);
-    process.exit();
 }
 
 // Intersection - Compare elements in sets and if true, add to array.
@@ -32,8 +25,6 @@ function setIntersection() {
         }
     }
     interSet.sort();
-    console.log(interSet);
-    process.exit();
 }
 
 // Difference - Compare both and find what is not in the second set and add to array.
@@ -49,17 +40,20 @@ function setDifference() {
         }
     }
     diffSet.sort();
-    console.log(diffSet);
-    process.exit();
 }
 
 function setHelp() {
-    console.log(" ");
-    process.exit();
+    console.log("For union use -u or --union argument with two sets with each integer in the set separated by commas.\n\n\tex: node sets.js -u 1,2,3 3,4,5");
+    console.log("\n\nFor intersection use -i or --intersection argument with two sets with each integer in the set separated by commas.\n\n\tex: node sets.js -i 1,2,3 3,4,5");
+    console.log("\n\nFor difference use -d or --difference argument with two sets with each integer in the set separated by commas.\n\n\tex: node sets.js -d 1,2,3 3,4,5")
 }
 
 var myArgs = process.argv.slice(2);
 
+if (myArgs[0] == '-h' || myArgs[0] == '--help') {
+    setHelp();
+    process.exit();
+}
 if (myArgs.length == 0) {
     console.error("Error, no arguments specified please use -h or --help for usage information.");
     process.exit();
@@ -78,13 +72,16 @@ var setTwo = B.split(",");
 
 if (myArgs[0] == '-u' || myArgs[0] == '--union') {
     setUnion();
+    console.log(unionSet);
+    process.exit();
 }
 if (myArgs[0] == '-i' || myArgs[0] == '--intersection') {
     setIntersection();
+    console.log(interSet);
+    process.exit();
 }
 if (myArgs[0] == '-d' || myArgs[0] == '--difference') {
     setDifference();
-}
-if (myArgs[0] == '-h' || myArgs[0] == '--help') {
-    setHelp();
+    console.log(diffSet);
+    process.exit();
 }
