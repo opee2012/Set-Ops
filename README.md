@@ -19,3 +19,6 @@ Outputs a set in Array form of elements in Number form that are in SET1 unless t
 * -h, --help
 
 Output a usage message and exit.
+
+Created by: Jacob Borth
+borthj2@winthrop.edu
