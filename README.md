@@ -1,6 +1,8 @@
+#  set-ops-opee2012
+
 Start program by using `node sets.js [OPTIONS]` in terminal within set-ops-opee2012 repo.
 
-# OPTIONS
+## OPTIONS
 
 * -u SET1 SET2, --union SET1 SET2
 
@@ -17,3 +19,6 @@ Outputs a set in Array form of elements in Number form that are in SET1 unless t
 * -h, --help
 
 Output a usage message and exit.
+
+Created by: Jacob Borth
+borthj2@winthrop.edu
