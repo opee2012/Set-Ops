@@ -5,19 +5,22 @@
 
 // Union - Duplicate first set then compare that with second set. If there are duplicates, don't add to array.
 function setUnion() {
+    var tempSet = new Array();
     var unionSet = new Array();
-    unionSet = setOne.concat(setTwo);
+    tempSet = setOne.concat(setTwo);
 
     for (let i = 0; i < setOne.length; i++) {
-        for (let j = setOne.length; j < unionSet.length; j++) {
-            if (unionSet[i] == unionSet[j]) {
-                unionSet.splice(j, 1);
+        for (let j = setOne.length; j < tempSet.length; j++) {
+            if (tempSet[i] == tempSet[j]) {
+                tempSet.splice(j, 1);
             }
         }
     }
-    unionSet.sort();
-    console.log(unionSet);
-    process.exit();
+    tempSet.sort();
+    for (let k = 0; k < tempSet.length; k++) {
+        unionSet.push(parseInt(tempSet[k]));
+    }
+    return unionSet
 }
 
 // Intersection - Compare elements in sets and if true, add to array.
@@ -27,30 +30,32 @@ function setIntersection() {
     for (let i = 0; i < setOne.length; i++) {
         for (let j = 0; j < setTwo.length; j++) {
             if (setOne[i] == setTwo[j]) {
-                interSet.push(setTwo[j]);
+                interSet.push(parseInt(setTwo[j]));
             }
         }
     }
     interSet.sort();
-    console.log(interSet);
-    process.exit();
+    return interSet;
 }
 
 // Difference - Compare both and find what is not in the second set and add to array.
 function setDifference() {
+    var tempSet = new Array();
     var diffSet = new Array();
-    diffSet = setOne;
+    tempSet = setOne;
 
     for (let i = 0; i < setOne.length; i++) {
         for (let j = 0; j < setTwo.length; j++) {
             if (setOne[i] == setTwo[j]) {
-                diffSet.splice(i, 1);
+                tempSet.splice(i, 1);
             }
         }
     }
-    diffSet.sort();
-    console.log(diffSet);
-    process.exit();
+    tempSet.sort();
+    for (let k = 0; k < tempSet.length; k++) {
+        diffSet.push(parseInt(tempSet[k]));
+    }
+    return diffSet
 }
 
 function setHelp() {
@@ -74,16 +79,17 @@ var B = myArgs[2];
 var setOne = A.split(",");
 var setTwo = B.split(",");
 
-//console.log(setTwo[0]);
-
 if (myArgs[0] == '-u' || myArgs[0] == '--union') {
-    setUnion();
+    console.log(setUnion());
+    process.exit;
 }
 if (myArgs[0] == '-i' || myArgs[0] == '--intersection') {
-    setIntersection();
+    console.log(setIntersection());
+    process.exit;
 }
 if (myArgs[0] == '-d' || myArgs[0] == '--difference') {
-    setDifference();
+    console.log(setDifference());
+    process.exit;
 }
 if (myArgs[0] == '-h' || myArgs[0] == '--help') {
     setHelp();
